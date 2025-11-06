@@ -1,3 +1,5 @@
+"use client";
+
 import ProfileCard from '../../components/ProfileCard';
 export const metadata = {
   title: "Dashboard | StudySync",
@@ -21,7 +23,25 @@ const matches = [
 ];
 
 
+import { useAuth } from "@/lib/useAuth";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
+
 export default function Dashboard() {
+  const { user, loading } = useAuth(); // ✅ this handles login state
+  const router = useRouter();
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen text-gray-500">
+        Loading...
+      </div>
+    );
+  }
+
+  if (!user) return null;
+
   return (
     
     <div className="font-sans min-h-screen bg-gradient-to-b from-blue-50 to-yellow-100 p-6">
@@ -46,6 +66,16 @@ export default function Dashboard() {
          </div>
         ))}
       </div>
+
+      <button
+        onClick={() => {
+          signOut(auth);
+          router.push("/login");
+        }}
+        className="p-3 bg-gray-700 text-white rounded-lg hover:bg-gray-800"
+      >
+        Sign Out
+      </button>
     </div>
   );
 }
