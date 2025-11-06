@@ -8,7 +8,7 @@ export default function Home() {
       <h1 className="text-5xl font-bold text-blue-700 mb-8">
         Welcome to StudySync
       </h1>
-      <p className="mb-6 text-gray-700">Find your perfect study buddy today!</p>
+      <p className="mb-6 text-gray-500">Find your perfect study buddy today!</p>
       <div className="space-x-4">
         <Link href="/signup" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
           Sign Up
