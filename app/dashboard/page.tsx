@@ -1,6 +1,27 @@
 "use client";
 
 import ProfileCard from '../../components/ProfileCard';
+export const metadata = {
+  title: "Dashboard | StudySync",
+};
+
+//simple user object as a mock logged in user
+const currentUser = {
+  name: "Charlize Tan",
+  courses: ["CS 122A", "CS 101", "Math 2A"]
+};
+
+// dummy courses that the dropdown will pull from 
+const courses = ["CS 101","CS 122A", "CS 102", "Stats 67", "Math 2A", "Physics 7A", "Weightlifing"];
+
+// dummy matches, since API calling is not set up yet. 
+const matches = [
+  { name: "Alice", course: "CS 101" },
+  { name: "Bob", course: "Math 2A" },
+  { name: "char", course: "Math 1A" },
+  { name: "reise", course: "Math 2c" }
+];
+
 
 import { useAuth } from "@/lib/useAuth";
 import { signOut } from "firebase/auth";
@@ -22,18 +43,28 @@ export default function Dashboard() {
   if (!user) return null;
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4 text-green-600">
-        Welcome, {user.displayName}
-      </h1>
-      <p className="mb-6 text-gray-700">Email: {user.email}</p>
+    
+    <div className="font-sans min-h-screen bg-gradient-to-b from-blue-50 to-yellow-100 p-6">
+      <h2 className="text-xl font-semibold mb-4">
+      Welcome, {currentUser.name} !
+      </h2>
+      <h1 className="text-3xl font-bold mb-6">your matches</h1>
+      <select className="border p-2 rounded-lg mb-4">
+        {courses.map((course) => (
+        <option key={course} value={course}>{course}</option>
+        ))}
+      </select>
+      <button className="border p-3 px-3 py-2 bg-blue-600 text-white rounded-lg">
+        Find Your Buddy
+      </button>
 
-      <h1 className="text-3xl font-bold text-blue-600 mb-6">Your Study Buddies</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-5">
-        {/* Placeholder cards */}
-        <ProfileCard name="Alice" major="CS" interests="Algorithms" />
-        <ProfileCard name="Bob" major="Math" interests="Statistics" />
-        <ProfileCard name="Charlie" major="Physics" interests="Quantum" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {matches.map((user) => (
+         <div key={user.name} className="p-4 border rounded-lg shadow">
+           <p className="font-semibold">{user.name}</p>
+           <p className="text-gray-600">{user.course}</p>
+         </div>
+        ))}
       </div>
 
       <button
