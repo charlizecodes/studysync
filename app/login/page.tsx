@@ -34,7 +34,7 @@ export default function Login() {
         onClick={handleGoogleLogin}
         className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
       >
-        Sign in with UC Google
+        Sign in with UCI Google account
       </button>
     </div>
   );
