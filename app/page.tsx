@@ -45,9 +45,6 @@ export default function Home() {
 
       </motion.h2>
       <div className="space-x-4">
-        <Link href="/signup" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-          Sign Up
-        </Link>
         <Link href="/login" className="px-6 py-3 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-100">
           Login
         </Link>
