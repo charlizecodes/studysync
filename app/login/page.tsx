@@ -12,7 +12,6 @@ export default function Login() {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
 
-      // Restrict to UC emails
       if (!user.email?.endsWith("@uci.edu")) {
         alert("Please use your UCI email address.");
         return;
@@ -20,7 +19,6 @@ export default function Login() {
 
       console.log("Signed in as:", user.displayName, user.email);
 
-      // ✅ Redirect to dashboard
       router.push("/dashboard");
     } catch (error) {
       console.error("Google sign-in error:", error);
@@ -28,14 +26,21 @@ export default function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
-      <h1 className="text-3xl font-bold mb-6 text-blue-600">Login</h1>
-      <button
-        onClick={handleGoogleLogin}
-        className="p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-      >
-        Sign in with UCI Google account
-      </button>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-md p-8 bg-white rounded-xl shadow-lg space-y-6">
+        <h1 className="text-4xl font-bold text-center text-blue-600">
+          StudySync
+        </h1>
+        <p className="text-center text-gray-600">
+          Sign in with your UCI Google account to continue
+        </p>
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200"
+        >
+          Sign in with Google
+        </button>
+      </div>
     </div>
   );
 }
