@@ -1,9 +1,11 @@
 "use client";
 
 import ProfileCard from '../../components/ProfileCard';
+/*
 export const metadata = {
   title: "Dashboard | StudySync",
 };
+*/
 
 //simple user object as a mock logged in user
 const currentUser = {
