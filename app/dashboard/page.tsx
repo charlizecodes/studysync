@@ -72,7 +72,7 @@ export default function Dashboard() {
       <button
         onClick={() => {
           signOut(auth);
-          router.push("/login");
+          router.push("/");
         }}
         className="p-3 bg-gray-700 text-white rounded-lg hover:bg-gray-800"
       >
