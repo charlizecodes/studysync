@@ -3,7 +3,7 @@
 import ProfileCard from '../../components/ProfileCard';
 /*
 export const metadata = {
-  title: "Dashboard | StudySync",
+  
 };
 */
 
@@ -48,7 +48,7 @@ export default function Dashboard() {
     
     <div className="font-sans min-h-screen bg-gradient-to-b from-blue-50 to-yellow-100 p-6">
       <h2 className="text-xl font-semibold mb-4">
-      Welcome, {currentUser.name} !
+      Welcome, {user.displayName} !
       </h2>
       <h1 className="text-3xl font-bold mb-6">your matches</h1>
       <select className="border p-2 rounded-lg mb-4">
