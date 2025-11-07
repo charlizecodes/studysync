@@ -1,5 +1,6 @@
 /* import Image from "next/image"; */
 "use client"
+
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
@@ -8,7 +9,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-yellow-50">
+    <div className="font-sans flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-yellow-100">
       
 
     {/* Logo */}
